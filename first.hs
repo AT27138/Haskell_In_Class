@@ -1,6 +1,5 @@
 
 
 factorial :: Int -> Int
-factorial x
- | x == 1 = x
- | otherwise factorial succ x
+factorial 1 = 1
+factorial x = factorial `succ` x
