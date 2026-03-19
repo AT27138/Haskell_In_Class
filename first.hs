@@ -2,4 +2,4 @@
 
 factorial :: Int -> Int
 factorial 1 = 1
-factorial x = factorial `succ` x
+factorial x = x * factorial ( pred x )
