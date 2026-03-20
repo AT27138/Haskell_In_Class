@@ -30,16 +30,16 @@ primes n = [x | x <- [1..n], isPrime x]
 isPalindrome :: String -> Bool
 isPalindrome s = s == reverse ( s )
 
-caesarShift :: Char -> Int -> Int
-caesarShift c i = ( ord c ) + i
+caesarShift :: (Char, Int) -> Int
+caesarShift (c, i) = ( ord c ) + i
 
-caesarHash :: Int -> Int -> Char
-caesarHash c i
+caesarHash :: Int -> Char
+caesarHash i
     |   c < ( ( ord 'A' ) + 26)   = char ( c )
     |   otherwise     = char ( c - 26 )
 
-caesarCipher :: String -> Int -> String
-caesarCipher str shft = [ caesarHash c | c <- str, isAlpha c]
+caesarCipher :: (String, Int) -> String
+caesarCipher (str, shft) = [ caesarHash (caesarShift (c, shft)) | c <- str, isAlpha c]
 
 
 --
