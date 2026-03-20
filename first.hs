@@ -1,3 +1,4 @@
+import Data.Char
 
 -- factorial obvs
 
@@ -24,5 +25,23 @@ primes n = [x | x <- [1..n], isPrime x]
 
 --
 
+-- lesson 3
+
+isPalindrome :: String -> Bool
+isPalindrome s = s == reverse ( s )
+
+caesarShift :: Char -> Int -> Int
+caesarShift c i = ( ord c ) + i
+
+caesarHash :: Int -> Int -> Char
+caesarHash c i
+    |   c < ( ( ord 'A' ) + 26)   = char ( c )
+    |   otherwise     = char ( c - 26 )
+
+caesarCipher :: String -> Int -> String
+caesarCipher str shft = [ caesarHash c | c <- str, isAlpha c]
 
 
+--
+
+( caesarShift c i )
