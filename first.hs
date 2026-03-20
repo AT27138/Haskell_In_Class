@@ -34,14 +34,12 @@ caesarShift :: (Char, Int) -> Int
 caesarShift (c, i) = ( ord c ) + i
 
 caesarHash :: Int -> Char
-caesarHash i
-    |   c < ( ( ord 'A' ) + 26)   = char ( c )
-    |   otherwise     = char ( c - 26 )
+caesarHash c
+    |   c < ( ( ord 'A' ) + 26)   = chr ( c )
+    |   otherwise     = chr ( c - 26 )
 
 caesarCipher :: (String, Int) -> String
-caesarCipher (str, shft) = [ caesarHash (caesarShift (c, shft)) | c <- str, isAlpha c]
+caesarCipher (str, shft) = [ caesarHash (caesarShift (c, shft - 26)) | c <- str, isAlpha c]
 
 
 --
-
-( caesarShift c i )
