@@ -43,3 +43,22 @@ caesarCipher (str, shft) = [ caesarHash (caesarShift (c, shft - 26)) | c <- str,
 
 
 --
+
+-- lesson 4
+
+listProduct :: Num a => [a] -> a
+listProduct [] = 1
+listProduct [n] = n
+listProduct (n:ns) = n * listProduct ns
+
+palindromeFilter :: [Char] -> [Char]
+palindromeFilter s 
+    | True = [ toUpper n | n <- s, 
+    (((ord n) > 64 ) && ((ord n) < 91 )) || 
+    (((ord n) > 96 ) && ((ord n) < 123))]
+
+isPalindrome2 :: [Char] -> Bool
+isPalindrome2 s = isPalindrome (palindromeFilter s)
+
+
+--
