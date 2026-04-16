@@ -62,3 +62,16 @@ isPalindrome2 s = isPalindrome (palindromeFilter s)
 
 
 --
+
+-- lesson 5
+
+isDigit :: Char -> Bool
+isDigit c = ( ( ord c ) < 58 ) && ( ( ord c ) > 47)
+
+isDigitList :: [Char] -> [Bool]
+isDigitList xs = map isDigit xs
+
+filter :: (a -> Bool) -> [a] -> [a]
+filter xs = [x | x <- xs, filter x]
+
+--
